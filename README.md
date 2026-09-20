@@ -1,16 +1,27 @@
-# Nerfies
+# DiffGM3 Project Page
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+Source for the project page of **"Differentiable Dynamics for Autonomous
+Micro-Mobility Navigation"** (Grace Cai, Joey Lee, Nithin Parepally, Laura
+Zheng, Ming C. Lin — University of Maryland, College Park).
 
-If you find Nerfies useful for your work please cite:
+The site is a single static page (`index.html`) with assets under `static/`:
+
+- `static/css`, `static/js` — Bulma + FontAwesome (from the Nerfies template)
+- `static/images` — paper figures (DiffGM3/DiffKBM diagrams, DiffMPC pipeline,
+  open-loop IMPTC and closed-loop CrowdNav results) and GM3 platform layouts
+- `static/videos` — the IROS overview video and GM3 simulator clips
+- `DiffGM3_Paper.pdf`, `DiffGM3_Poster.pdf` — paper and poster
+
+Preview locally with any static server, e.g.:
+
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}
+python3 -m http.server 8000
 ```
+
+The prior work, GM3, has its own page: https://github.com/gracelcai/gm3
 
 # Website License
+
+This page was built from the [Nerfies](https://nerfies.github.io) project page.
+
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

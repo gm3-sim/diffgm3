@@ -4,14 +4,16 @@
 		<meta charset="utf-8" />
 		<meta
 			name="description"
-			content="GM3: A General Physical Model for Micro-Mobility Vehicles."
+			content="DiffGM3: Differentiable Dynamics for Autonomous Micro-Mobility Navigation."
 		/>
 		<meta
 			name="keywords"
-			content="GM3, Micro-Mobility, Vehicle Dynamics, Brush Tire Model, KBM"
+			content="DiffGM3, DiffKBM, Differentiable Dynamics, Micro-Mobility, Brush Tire Model, Differentiable MPC, DiffStack, CrowdNav"
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>GM3: A General Physical Model for Micro-Mobility Vehicles</title>
+		<title>
+			DiffGM3: Differentiable Dynamics for Autonomous Micro-Mobility Navigation
+		</title>
 
 		<link
 			href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -34,57 +36,37 @@
 		<script src="./static/js/index.js"></script>
 	</head>
 	<body>
-		<!-- <nav class="navbar is-white" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-				<a class="navbar-item" href="#top">
-					<strong>GM3</strong>
-				</a>
-				<a
-					role="button"
-					class="navbar-burger"
-					aria-label="menu"
-					aria-expanded="false"
-					data-target="gm3-menu"
-				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</a>
-			</div>
-			<div id="gm3-menu" class="navbar-menu">
-				<div class="navbar-end">
-					<a class="navbar-item" href="#abstract">Abstract</a>
-					<a class="navbar-item" href="#method">Method</a>
-					<a class="navbar-item" href="#media">Media</a>
-					<a class="navbar-item" href="#results">Results</a>
-					<a class="navbar-item" href="#conclusion">Conclusion</a>
-				</div>
-			</div>
-		</nav> -->
-
 		<section id="top" class="hero gm3-hero">
 			<div class="hero-body">
 				<div class="container is-max-desktop">
 					<div class="columns is-centered">
 						<div class="column has-text-centered">
+							<span class="venue-tag">IROS 2026</span>
 							<h1 class="title is-1 publication-title">
-								GM3: A General Physical Model for Micro-Mobility Vehicles
+								Differentiable Dynamics for Autonomous Micro-Mobility
+								Navigation
 							</h1>
-							<!-- <p class="is-size-5 publication-subtitle">
-								A unified tire-level dynamics model for arbitrary wheel layouts,
-								rider lean, and realistic micro-mobility simulation.
-							</p> -->
+							<p class="is-size-5 publication-subtitle">
+								DiffGM3 makes tire-level micro-mobility dynamics differentiable,
+								so physical parameters can be learned inside an autonomy stack
+								and used for safer navigation in pedestrian-shared spaces.
+							</p>
 
 							<div class="is-size-5 publication-authors">
 								<span class="author-block"
 									><a href="https://gracelcai.github.io/">Grace Cai</a
-									><sup>*1</sup>,</span
+									><sup>1</sup>,</span
+								>
+								<span class="author-block"
+									><a href="https://www.linkedin.com/in/joey-lee-a08842201/"
+										>Joey Lee</a
+									><sup>1</sup>,</span
 								>
 								<span class="author-block"
 									><a
 										href="https://www.linkedin.com/in/nithin-parepally-48b40a242/"
 										>Nithin Parepally</a
-									><sup>*1</sup>,</span
+									><sup>1</sup>,</span
 								>
 								<span class="author-block"
 									><a href="https://laurayuzheng.github.io/">Laura Zheng</a
@@ -99,14 +81,12 @@
 								<span class="author-block"
 									><sup>1</sup>University of Maryland, College Park</span
 								>
-								<br />
-								<span class="author-block"><sup>*</sup>Equal contribution</span>
 							</div>
 
 							<div class="publication-links">
 								<span class="link-block">
 									<a
-										href="./GM3_Final.pdf"
+										href="./DiffGM3_Paper.pdf"
 										class="button is-normal is-rounded is-dark"
 									>
 										<span class="icon"><i class="fas fa-file-pdf"></i></span>
@@ -115,54 +95,42 @@
 								</span>
 								<span class="link-block">
 									<a
-										href="https://arxiv.org/abs/2510.07807"
-										class="external-link button is-normal is-rounded is-dark"
-									>
-										<span class="icon">
-											<i class="ai ai-arxiv"></i>
-										</span>
-										<span>arXiv</span>
-									</a>
-								</span>
-
-								<span class="link-block">
-									<a
-										href="https://youtu.be/GV_J_Sh1Oxw"
+										href="#video"
 										class="button is-normal is-rounded is-dark"
 									>
-										<span class="icon"><i class="fab fa-youtube"></i></span>
+										<span class="icon"><i class="fas fa-play"></i></span>
 										<span>Video</span>
 									</a>
 								</span>
 								<span class="link-block">
 									<a
-										href="./GM3_Poster_Final.pdf"
-										class="button is-normal is-rounded is-dark"
+										href="#"
+										class="button is-normal is-rounded is-dark is-disabled"
+										aria-disabled="true"
 									>
 										<span class="icon"><i class="fas fa-image"></i></span>
-										<span>Poster</span>
+										<span>Poster (TBD)</span>
+									</a>
+								</span>
+								<span class="link-block">
+									<a
+										href="https://arxiv.org/abs/2510.07807"
+										class="external-link button is-normal is-rounded is-dark"
+									>
+										<span class="icon"><i class="ai ai-arxiv"></i></span>
+										<span>GM3 (prior work)</span>
 									</a>
 								</span>
 								<span class="link-block">
 									<a
 										href="#"
-										class="button is-normal is-rounded is-dark"
+										class="button is-normal is-rounded is-dark is-disabled"
 										aria-disabled="true"
 									>
 										<span class="icon"><i class="fab fa-github"></i></span>
 										<span>Code (TBD)</span>
 									</a>
 								</span>
-								<!-- <span class="link-block">
-									<a
-										href="#"
-										class="button is-normal is-rounded is-dark is-disabled"
-										aria-disabled="true"
-									>
-										<span class="icon"><i class="far fa-images"></i></span>
-										<span>Dataset (TBD)</span>
-									</a>
-								</span> -->
 							</div>
 						</div>
 					</div>
@@ -170,34 +138,19 @@
 			</div>
 		</section>
 
-		<section id="media" class="section media-section">
+		<section id="video" class="section media-section">
 			<div class="container is-max-desktop">
-				<div class="columns is-multiline video-grid">
-					<div class="column">
-						<div class="media-card">
-							<h3 class="title is-5">Bicycle/Scooter</h3>
-							<video controls muted playsinline preload="metadata">
-								<source src="./static/videos/2w_ftb.mp4" type="video/mp4" />
-							</video>
-						</div>
-					</div>
-					<div class="column">
-						<div class="media-card">
-							<h3 class="title is-5">Skateboard</h3>
-							<video controls muted playsinline preload="metadata">
-								<source src="./static/videos/4w_s.mp4" type="video/mp4" />
-							</video>
-						</div>
-					</div>
-					<div class="column">
-						<div class="media-card">
-							<h3 class="title is-5">Cart</h3>
-							<video controls muted playsinline preload="metadata">
-								<source src="./static/videos/4w.mp4" type="video/mp4" />
-							</video>
-						</div>
-					</div>
+				<h2 class="title is-3 has-text-centered">Overview Video</h2>
+				<div class="hero-video-wrap">
+					<video controls playsinline preload="metadata">
+						<source src="./static/videos/diffgm3_overview.mp4" type="video/mp4" />
+					</video>
 				</div>
+				<p class="caption">
+					Open-loop trajectory matching on IMPTC, closed-loop pedestrian crowd
+					navigation with DiffMPC, and generalization of DiffGM3 across
+					micro-mobility vehicle types.
+				</p>
 			</div>
 		</section>
 
@@ -206,358 +159,568 @@
 				<div class="content long-form-copy">
 					<h2 class="title is-3">Abstract</h2>
 					<p>
-						Modeling the dynamics of micro-mobility vehicles (MMV) is becoming
-						increasingly important for training autonomous vehicle systems and
-						building urban traffic simulations. However, mainstream tools rely
-						on variants of the Kinematic Bicycle Model (KBM) or mode-specific
-						physics that miss tire slip, load transfer, and rider/vehicle lean.
-						To our knowledge, no unified, physics-based model captures these
-						dynamics across the full range of common MMVs and wheel layouts. We
-						propose the "Generalized Micro-mobility Model" (GM3), a tire-level
-						formulation based on the tire brush representation that supports
-						arbitrary wheel configurations, including single/double track and
-						multi-wheel platforms. We introduce an interactive model-agnostic
-						evaluation and visualization framework that decouples vehicle/layout
-						specification from dynamics to compare the GM3 with the KBM and
-						other models, consisting of fixed step RK4 integration,
-						human-in-the-loop and scripted control, real-time trajectory traces,
-						and logging for analysis. We also empirically validate the GM3 on
-						the Stanford Drone Dataset's deathCircle (roundabout) scene for
-						biker, skater, and cart classes.
+						Autonomous micro-mobility vehicles (MMVs) such as wheelchairs,
+						scooters, and bicycles have the potential to improve mobility access
+						and support safe low-speed transportation in pedestrian-shared
+						spaces. Achieving MMV autonomy will require realistic, predictable
+						MMV motion. However, many existing autonomous vehicle stacks rely on
+						simplified kinematic models that fail to capture key MMV
+						characteristics such as tire slip, friction, and wheel layouts,
+						limiting realism and gradient-based optimization. In this paper, we
+						explore differentiable formulations of dynamics models for autonomous
+						micro-mobility systems. We first construct
+						<strong>DiffKBM</strong>, a differentiable version of the classical
+						kinematic bicycle model (KBM). Then, we introduce
+						<strong>DiffGM3</strong>, a differentiable formulation of the General
+						Micro-Mobility Model (GM3), a unified tire-based dynamics formulation
+						for micro-mobility vehicles that supports a wide range of MMV
+						configurations. DiffKBM and DiffGM3 enable end-to-end differentiable
+						optimization through MMV dynamics, making them suitable for
+						integration into differentiable autonomy stacks. We evaluate these
+						dynamics models in both open-loop and closed-loop settings: (1)
+						open-loop trajectory matching, where DiffKBM and DiffGM3 are
+						integrated as a dynamics layer within DiffStack and optimized to
+						reproduce real-world MMV trajectories, and (2) closed-loop autonomous
+						navigation, where DiffKBM and DiffGM3 are paired with a differentiable
+						model predictive control (MPC) controller in CrowdNav pedestrian
+						scenarios. In the open-loop setting, DiffGM3 outperforms DiffKBM in
+						reproducing trajectories with improvements in ADE and NLL across
+						bicycle, scooter, and motorcycle modes, and reductions in planning
+						loss for bicycle and motorcycle trajectories. We also find that, in
+						closed-loop settings, DiffGM3 improves on DiffKBM's CrowdNav
+						performance by producing 55% fewer collisions and a 75% lower
+						discomfort frequency for the bicycle mode.
 					</p>
 				</div>
-				<h3 class="title is-4">Demo Video</h3>
-				<div class="youtube-embed-wrap">
-					<iframe
-						src="https://www.youtube.com/embed/GV_J_Sh1Oxw"
-						title="GM3 project video"
-						allow="
-							accelerometer;
-							autoplay;
-							clipboard-write;
-							encrypted-media;
-							gyroscope;
-							picture-in-picture;
-							web-share;
-						"
-						referrerpolicy="strict-origin-when-cross-origin"
-						allowfullscreen
-					></iframe>
+
+				<div class="columns is-multiline highlight-grid">
+					<div class="column is-one-quarter">
+						<div class="highlight-card">
+							<div class="stat">&minus;55%</div>
+							<p>Collisions in closed-loop crowd navigation (bicycle)</p>
+						</div>
+					</div>
+					<div class="column is-one-quarter">
+						<div class="highlight-card">
+							<div class="stat">&minus;75%</div>
+							<p>Discomfort frequency versus DiffKBM (bicycle)</p>
+						</div>
+					</div>
+					<div class="column is-one-quarter">
+						<div class="highlight-card">
+							<div class="stat">&minus;9.8%</div>
+							<p>Open-loop ADE on scooter trajectories</p>
+						</div>
+					</div>
+					<div class="column is-one-quarter">
+						<div class="highlight-card">
+							<div class="stat">&minus;28.9%</div>
+							<p>Planning loss on motorcycle trajectories</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="method" class="section">
+		<section id="method" class="section is-light">
 			<div class="container is-max-desktop">
-				<h2 class="title is-3 has-text-centered">Methodology</h2>
+				<h2 class="title is-3 has-text-centered">
+					Differentiable Micro-Mobility Dynamics
+				</h2>
+				<p class="has-text-centered section-intro">
+					Both the KBM and GM3 consist of equations that are almost fully
+					differentiable. By reformulating them as DiffKBM and DiffGM3, we can
+					compute the gradient of a downstream training objective with respect to
+					upstream physical parameters, so an entire autonomy stack can be
+					optimized jointly with gradient descent.
+				</p>
+
+				<div class="content long-form-copy">
+					<p>
+						With a trajectory-matching objective over a predicted trajectory
+						<em>&#374;</em> and ground truth <em>Y</em>, each physical parameter
+						&rho;<sub>i</sub> of the dynamics model is updated by backpropagating
+						through the rollout:
+					</p>
+					<span class="eq">
+						&#8466;<sub>ADE</sub> = (1/T) &sum;<sub>t</sub> &#8214; &#375;<sub>t</sub>
+						&minus; y<sub>t</sub> &#8214;<sub>2</sub> &nbsp;&nbsp;&nbsp;
+						&rho;<sub>i</sub> &larr; &rho;<sub>i</sub> &minus; &eta; &part;&#8466;<sub>ADE</sub>
+						/ &part;&rho;<sub>i</sub>
+					</span>
+				</div>
+
+				<div class="figure-block">
+					<img
+						src="./static/images/diffgm3_diagram.png"
+						alt="DiffGM3 module diagram showing steering, load transfer, lean, tire brush model, vehicle integration, and Euler integration with gradient flow"
+					/>
+					<p class="caption">
+						<strong>DiffGM3</strong> contains several differentiable components
+						with learnable parameter sets &rho;<sub>lean</sub>,
+						&rho;<sub>tire</sub>, and &rho;<sub>VI</sub>. The steering input
+						&delta; is converted into tire-specific angles &delta;<sub>i</sub>,
+						which together with body velocities and yaw rate give tire
+						velocities; accelerations drive load transfer, and the previous lean
+						angle and roll rate determine the next lean angle. These feed the
+						tire brush model, whose forces and moments are integrated into
+						vehicle dynamics and finally into position via Euler integration.
+						Gradients backpropagate to every module so parameters can be tuned
+						on MMV trajectory data.
+					</p>
+				</div>
 
 				<div class="columns is-multiline method-cards">
 					<div class="column is-half">
 						<article class="box">
-							<h3 class="title is-5">Vehicle Integration</h3>
-							<p></p>
+							<h3 class="title is-5">Smoothing the Brush Model</h3>
 							<p>
-								We apply the tire brush model to an MMV with any number of
-								tires, given their positions relative to the center of gravity:
+								GM3's longitudinal force, lateral force, and aligning moment are
+								discontinuous at the adhesion&ndash;sliding boundary, and the
+								sign function kills gradients entirely. We replace the hard
+								switch with a sigmoid gate, the sign function with
+								tanh(k&alpha;), and absolute values with a softened norm.
 							</p>
-							<ol class="integration-steps">
-								<li>Transform velocity from body frame into tire frame</li>
-								<li>Compute tire brush model forces and moments</li>
-								<li>Transform forces and moments back into body frame</li>
-								<li>Add up forces and moments to calculate acceleration</li>
-							</ol>
-							<div class="inline-figure">
-								<img
-									src="./static/images/integration.png"
-									alt="Vehicle integration visualization"
-								/>
-							</div>
+							<span class="eq">
+								G(&sigma;, &psi;) = 1 / (1 + e<sup>&minus;k(&sigma; &minus; 1/&psi;)</sup>)
+							</span>
+							<p>
+								The gate steepness <em>k</em> acts as a temperature. The
+								resulting worst-case force error decays with (1/k)<sup>3</sup>,
+								so the smoothed model is the exact model plus a small bounded
+								disturbance &mdash; and receding-horizon MPC re-plans from the
+								measured state each step, so the mismatch cannot accumulate.
+							</p>
 						</article>
 					</div>
 					<div class="column is-half">
 						<article class="box">
-							<h3 class="title is-5">Load Transfer</h3>
+							<h3 class="title is-5">Differentiable Steering</h3>
 							<p>
-								Normal load is redistributed longitudinally and laterally based
-								on acceleration, center-of-gravity height, wheelbase, and track
-								width. This ensures each tire-force computation uses realistic
-								per-wheel normal forces.
+								The Ackermann steering formula for double-track vehicles has a
+								singularity at &delta; = 0. We instead compute each tire angle
+								directly from the input steering angle and the tire's lateral
+								position y<sub>i</sub>:
 							</p>
-							<div class="inline-figure">
-								<img
-									src="./static/images/load_transfer.png"
-									alt="Load transfer visualization"
-								/>
-							</div>
+							<span class="eq">
+								&delta;<sub>i</sub> = arctan( L tan&delta; / (L &minus;
+								y<sub>i</sub> tan&delta;) )
+							</span>
+							<p>
+								Steering is soft-clamped with tanh to a physically feasible
+								range, and a damping factor d<sub>yaw</sub> stabilizes the
+								turning dynamics: r&#775; = M<sub>z</sub><sup>total</sup>/I<sub>z</sub>
+								&minus; d<sub>yaw</sub> r.
+							</p>
 						</article>
 					</div>
 					<div class="column is-half">
 						<article class="box">
-							<h3 class="title is-5">Rider Lean Dynamics</h3>
+							<h3 class="title is-5">Differentiable Lean</h3>
 							<p>
-								For lean-capable MMVs, we calculate the rider’s lean angle from
-								the velocity and turn radius. This angle is used to project the
-								rider’s gravitational force into the lateral axis and calculate
-								the roll moment.
+								Rather than an instantaneous equilibrium lean angle, DiffGM3
+								treats roll as a true degree of freedom governed by a
+								second-order model around the ground contact point:
 							</p>
-							<div class="inline-figure">
-								<img
-									src="./static/images/lean.png"
-									alt="Rider lean visualization"
-								/>
-							</div>
+							<span class="eq">
+								I<sub>x</sub> &gamma;&#776; + d<sub>roll</sub> &gamma;&#775; + m
+								g h<sub>cg</sub> sin&gamma; = m a<sub>y</sub> h<sub>cg</sub>
+								cos&gamma;
+							</span>
+							<p>
+								Soft clamping keeps &part;&gamma;<sub>out</sub>/&part;&gamma;<sub>in</sub>
+								from vanishing, so the optimizer can recover even if the vehicle
+								"falls over" during a training epoch.
+							</p>
 						</article>
 					</div>
 					<div class="column is-half">
 						<article class="box">
-							<h3 class="title is-5">Skateboard Truck Geometry</h3>
+							<h3 class="title is-5">Learnable Parameters</h3>
 							<p>
-								Skateboards have two independent steering assemblies called
-								“truck” that rotate in opposite directions about a kingpin bolt
-								when the rider leans to turn. We calculate these angles from the
-								lean angle.
+								DiffGM3 learns physical parameters that are difficult to measure
+								directly, calibrated on 30 IMPTC trajectories via DiffMPC
+								trajectory tracking:
 							</p>
-							<div class="inline-figure">
-								<img
-									src="./static/images/skateboard.png"
-									alt="Skateboard truck geometry visualization"
-								/>
-							</div>
+							<ul class="param-list">
+								<li>
+									<strong>Body:</strong> align gain k<sub>align</sub>, damping
+									d<sub>yaw</sub> and d<sub>roll</sub>, moments of inertia
+									I<sub>z</sub>, I<sub>x</sub>
+								</li>
+								<li>
+									<strong>Tires (each wheel):</strong> friction coefficient
+									&mu;, tread stiffness c<sub>p</sub>, half contact length
+									&ell;
+								</li>
+							</ul>
+							<p>
+								Because low-speed intersection maneuvers keep tires in the
+								adhesion regime, friction-dominated parameters are only weakly
+								excited; all parameters are soft-clamped to physically feasible
+								ranges with tanh, acting as an implicit prior.
+							</p>
 						</article>
 					</div>
 				</div>
+
 				<div class="figure-block">
 					<img
-						src="./static/images/gm3_update_small.png"
-						alt="GM3 update pipeline"
+						src="./static/images/diffkbm.png"
+						alt="DiffKBM diagram showing wheelbase as a learnable parameter feeding steering and Euler integration"
 					/>
 					<p class="caption">
-						The GM3 State gets updated with the following steps: (1)
-						<strong>load transfer</strong> and
-						<strong>leaning angle to steer</strong> conversion for platforms,
-						(2) <strong>control assignment</strong> for each tire, (3)
-						<strong>individual tire processing</strong> with the brush model,
-						and (4) <strong>force integration</strong> and rider lean force
-						application.
+						<strong>DiffKBM</strong> (baseline) implements wheelbase <em>L</em>
+						as a learnable parameter in the steering component. The turning rate
+						and velocity are integrated with Euler steps to obtain position,
+						making the classical KBM end-to-end differentiable so <em>L</em> can
+						be tuned for an MMV with unknown wheelbase.
 					</p>
 				</div>
 			</div>
 		</section>
 
-		<section class="section is-light">
+		<section id="open-loop" class="section">
 			<div class="container is-max-desktop">
 				<h2 class="title is-3 has-text-centered">
-					Generalization Across Platform Layouts
+					Open-Loop Trajectory Matching on IMPTC
 				</h2>
-				<p class="has-text-centered section-intro">
-					Currently, our model supports three control interfaces: explicit
-					manual control, lean-to-steer with truck geometry, and differential
-					drive. Since GM3 is modular, the control module can be extended to
-					other control interfaces. This allows GM3 to support any wheeled MMV
-					or robot, given individual wheel steering angles and angular velocity
-					from the control module.
+				<div class="content long-form-copy">
+					<p>
+						We replace the dynamically-extended unicycle model in
+						<strong>DiffStack</strong> with DiffKBM and DiffGM3 and train the
+						stack to reproduce real-world MMV trajectories from the
+						Infrastructural Multi-Person Trajectory and Context (IMPTC) dataset,
+						which contains everyday public road traffic collected under varied
+						weather conditions. Because our formulations are differentiable,
+						gradients backpropagate through the control cost and on to the
+						prediction module. We sample planning scenarios with 4&nbsp;s of
+						history and 3&nbsp;s of future, designating one MMV as the ego agent:
+						617 bicycle tracks, 233 motorcycle tracks, and 85 scooter tracks.
+					</p>
+					<p>
+						DiffGM3 consistently outperforms DiffKBM on Average Displacement
+						Error (ADE) and negative log-likelihood (NLL) for all three modes,
+						and on planning loss for bicycles and motorcycles. Since DiffGM3 has
+						parameters that dampen yaw, it can correct for overturning, while
+						DiffKBM lacks a mechanism to limit the accumulation of heading angle
+						from yaw rate and drifts off the ground-truth path &mdash;
+						particularly visible at intersections, where MMVs rarely make
+						aggressive turns.
+					</p>
+				</div>
+
+				<div class="results-table-wrap">
+					<table class="results-table">
+						<thead>
+							<tr>
+								<th rowspan="2">Mode</th>
+								<th colspan="2">&darr; ADE (m)</th>
+								<th colspan="2">&darr; NLL</th>
+								<th colspan="2">&darr; Planning Loss</th>
+							</tr>
+							<tr>
+								<th>DiffGM3</th>
+								<th>DiffKBM</th>
+								<th>DiffGM3</th>
+								<th>DiffKBM</th>
+								<th>DiffGM3</th>
+								<th>DiffKBM</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Bicycle</th>
+								<td class="best">2.06 &plusmn; 0.08</td>
+								<td>2.08 &plusmn; 0.07</td>
+								<td class="best">1.07 &plusmn; 0.00</td>
+								<td>1.10 &plusmn; 0.04</td>
+								<td class="best">149.10 &plusmn; 7.87</td>
+								<td>155.58 &plusmn; 10.38</td>
+							</tr>
+							<tr>
+								<th>Scooter</th>
+								<td class="best">1.45 &plusmn; 0.01</td>
+								<td>1.61 &plusmn; 0.02</td>
+								<td class="best">1.23 &plusmn; 0.19</td>
+								<td>1.28 &plusmn; 0.17</td>
+								<td>142.75 &plusmn; 2.09</td>
+								<td class="best">119.57 &plusmn; 3.01</td>
+							</tr>
+							<tr>
+								<th>Motorcycle</th>
+								<td class="best">1.74 &plusmn; 0.00</td>
+								<td>1.78 &plusmn; 0.06</td>
+								<td class="best">3.02 &plusmn; 0.05</td>
+								<td>3.17 &plusmn; 0.27</td>
+								<td class="best">212.23 &plusmn; 12.77</td>
+								<td>298.50 &plusmn; 7.54</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p class="table-note">
+					DiffGM3 improves ADE (bicycle &minus;1.16%, scooter &minus;9.84%,
+					motorcycle &minus;2.37%) and NLL (&minus;3.02%, &minus;2.05%,
+					&minus;4.75%) on all modes, and planning loss on bicycle (&minus;4.16%)
+					and motorcycle (&minus;28.9%) trajectories. It performs worse on scooter
+					planning loss (+19.39%) because it slows down before reaching the goal,
+					even though it stays on path.
 				</p>
 
-				<div class="platform-group">
-					<h3 class="title is-4 platform-subheading">Common</h3>
-					<div class="columns is-multiline platform-grid">
-						<div class="column is-one-third">
-							<div class="platform-item">
-								<img
-									src="./static/images/2w_ftb.png"
-									alt="Bicycle two-wheel layout"
-								/>
-								<p>Bicycle / Scooter</p>
-							</div>
+				<div class="figure-composite">
+					<div class="figure-grid">
+						<div class="figure-card">
+							<img
+								src="./static/images/openloop_bicycle_diffgm3.png"
+								alt="Bicycle open-loop trajectory produced with DiffGM3"
+							/>
+							<p>Bicycle: DiffGM3</p>
 						</div>
-						<div class="column is-one-third">
-							<div class="platform-item">
-								<img src="./static/images/4w_s.png" alt="Skateboard layout" />
-								<p>Skateboard</p>
-							</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/openloop_bicycle_diffkbm.png"
+								alt="Bicycle open-loop trajectory produced with DiffKBM"
+							/>
+							<p>Bicycle: DiffKBM</p>
 						</div>
-						<div class="column is-one-third">
-							<div class="platform-item">
-								<img src="./static/images/4w.png" alt="Cart or LSV layout" />
-								<p>Cart / LSV</p>
-							</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/openloop_scooter_diffgm3.png"
+								alt="Scooter open-loop trajectory produced with DiffGM3"
+							/>
+							<p>Scooter: DiffGM3</p>
 						</div>
-					</div>
-				</div>
-
-				<div class="platform-group">
-					<h3 class="title is-4 platform-subheading">Uncommon</h3>
-					<div class="columns is-multiline platform-grid">
-						<div class="column is-one-quarter-desktop is-half-tablet">
-							<div class="platform-item">
-								<img src="./static/images/1w.png" alt="Unicycle layout" />
-								<p>Unicycle</p>
-							</div>
-						</div>
-						<div class="column is-one-quarter-desktop is-half-tablet">
-							<div class="platform-item">
-								<img src="./static/images/2w_sts.png" alt="Hoverboard layout" />
-								<p>Hoverboard</p>
-							</div>
-						</div>
-						<div class="column is-one-quarter-desktop is-half-tablet">
-							<div class="platform-item">
-								<img
-									src="./static/images/1f2r.png"
-									alt="Delta three-wheel layout"
-								/>
-								<p>Delta Tricycle</p>
-							</div>
-						</div>
-						<div class="column is-one-quarter-desktop is-half-tablet">
-							<div class="platform-item">
-								<img
-									src="./static/images/2f1r.png"
-									alt="Tadpole three-wheel layout"
-								/>
-								<p>Tadpole Tricycle</p>
-							</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/openloop_scooter_diffkbm.png"
+								alt="Scooter open-loop trajectory produced with DiffKBM"
+							/>
+							<p>Scooter: DiffKBM</p>
 						</div>
 					</div>
-				</div>
-
-				<div class="platform-group">
-					<h3 class="title is-4 platform-subheading">Novel</h3>
-					<div class="columns is-multiline is-centered platform-grid">
-						<div class="column is-one-third-desktop is-half-tablet">
-							<div class="platform-item">
-								<img
-									src="./static/images/5w.png"
-									alt="Circular platform five-wheel layout"
-								/>
-								<p>Circular Platform (5w)</p>
-							</div>
-						</div>
-						<div class="column is-one-third-desktop is-half-tablet">
-							<div class="platform-item">
-								<img
-									src="./static/images/carriage.png"
-									alt="Drawn carriage layout"
-								/>
-								<p>Drawn Carriage</p>
-							</div>
-						</div>
+					<div class="figure-legend">
+						<img
+							src="./static/images/diffstack_legend.png"
+							alt="Legend for open-loop trajectory figures"
+						/>
 					</div>
 				</div>
-			</div>
+				<p class="caption figure-caption">
+					On bicycle trajectories, DiffGM3 stays on path thanks to learnable
+					parameters that prevent overturning, though it sometimes stops before the
+					goal, raising goal cost. DiffKBM reaches the goal but veers off the
+					straight ground-truth path because its yaw formula has no realignment
+					term. For the scooter, DiffGM3 steers to the goal while avoiding other
+					agents, whereas DiffKBM turns toward another agent and slows down, never
+					arriving.
+				</p>
 		</section>
 
-		<section class="section">
+		<section id="closed-loop" class="section is-light">
 			<div class="container is-max-desktop">
 				<h2 class="title is-3 has-text-centered">
-					Interactive Evaluation Framework
+					Closed-Loop Navigation in Pedestrian Crowds
 				</h2>
+				<div class="content long-form-copy">
+					<p>
+						We pair DiffGM3 with a differentiable MPC controller
+						(<strong>DiffMPC</strong>) and evaluate it in
+						<strong>CrowdNav</strong>, a crowd&ndash;robot interaction benchmark
+						where an ego vehicle must reach a goal while avoiding multiple moving
+						pedestrians. At each timestep, DiffMPC plans a finite-horizon control
+						sequence using DiffGM3 to predict future MMV motion and executes the
+						first control action. DiffKBM is paired with the same controller as a
+						baseline: planning horizon, cost terms, weights, and optimization
+						settings are identical, and only the underlying dynamics model
+						differs.
+					</p>
+					<p>
+						The cost combines goal tracking with a braking-profile reference
+						velocity, a collision term built on a Turning Circle Control Barrier
+						Function that respects the non-holonomic constraints of the vehicle,
+						and small regularization penalties for smooth control.
+					</p>
+				</div>
+
 				<div class="figure-block">
 					<img
-						src="./static/images/sandbox.png"
-						alt="Simulation framework diagram"
+						src="./static/images/closed_loop_pipeline.png"
+						alt="DiffMPC pipeline with DiffKBM or DiffGM3 as the prediction module and gradients flowing back from the cost"
 					/>
 					<p class="caption">
-						Model-agnostic runtime loop with fixed-step RK4 integration,
-						interactive/scripted control input, visual trajectory tracing, and
-						CSV export.
+						<strong>The DiffMPC pipeline integrated with DiffKBM or DiffGM3.</strong>
+						The environment provides a state estimate, which is passed to the
+						optimizer with the goal position and surrounding pedestrian states.
+						The optimizer proposes a control sequence and rolls out predicted
+						states using DiffKBM or DiffGM3 with learnable parameters. Because
+						both the dynamics and the cost are differentiable, gradients
+						back-propagate through the prediction and cost modules for end-to-end
+						learning. The first control action is applied and the process repeats
+						in a receding-horizon loop.
 					</p>
 				</div>
-				<div class="content long-form-copy">
-					<p>
-						The framework separates dynamics from rendering and control
-						interfaces. This allows the same platform geometry to be tested with
-						GM3, KBM, and future models under equivalent integration and input
-						constraints. Supported control modes include direct steering,
-						lean-to-steer mappings, and differential-drive behavior.
-					</p>
+
+				<div class="results-table-wrap">
+					<table class="results-table">
+						<thead>
+							<tr>
+								<th>Model</th>
+								<th>&uarr; Success Rate</th>
+								<th>&darr; Collision Rate</th>
+								<th>&darr; Incomplete Rate</th>
+								<th>&darr; Nav. Time (s)</th>
+								<th>&darr; Discomfort Freq.</th>
+								<th>&uarr; Avg. Min Dist</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>DiffKBM Bicycle</th>
+								<td>0.62</td>
+								<td>0.38</td>
+								<td class="best">0.00</td>
+								<td class="best">4.02</td>
+								<td>0.08</td>
+								<td class="best">0.13</td>
+							</tr>
+							<tr>
+								<th>DiffGM3 Bicycle</th>
+								<td class="best">0.64</td>
+								<td class="best">0.17</td>
+								<td>0.19</td>
+								<td>5.13</td>
+								<td class="best">0.02</td>
+								<td>0.12</td>
+							</tr>
+							<tr>
+								<th>DiffGM3 Scooter</th>
+								<td>0.63</td>
+								<td class="best">0.13</td>
+								<td>0.23</td>
+								<td>6.14</td>
+								<td>0.03</td>
+								<td class="best">0.13</td>
+							</tr>
+							<tr>
+								<th>DiffGM3 Wheelchair</th>
+								<td>0.60</td>
+								<td>0.23</td>
+								<td>0.17</td>
+								<td>6.30</td>
+								<td>0.03</td>
+								<td>0.12</td>
+							</tr>
+							<tr>
+								<th>DiffGM3 Tricycle</th>
+								<td class="best">0.67</td>
+								<td>0.23</td>
+								<td>0.17</td>
+								<td>4.82</td>
+								<td>0.04</td>
+								<td>0.11</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
+				<p class="table-note">
+					Results over 100 CrowdNav sample trajectories. DiffGM3 prioritizes
+					safety, with far fewer collisions across all vehicle configurations: in
+					the bicycle-to-bicycle comparison it produces <strong>55% fewer
+					collisions</strong> and a <strong>3% better success rate</strong>. Its
+					higher incomplete rate and slower navigation time come from veering away
+					from the goal to avoid pedestrians and running out of the 10&nbsp;s time
+					limit &mdash; the same behavior that makes its discomfort frequency
+					50&ndash;75% better than DiffKBM's. DiffKBM's faster navigation times are
+					largely a result of collisions ending scenarios early.
+				</p>
+
+				<div class="figure-composite">
+					<div class="figure-grid">
+						<div class="figure-card">
+							<img
+								src="./static/images/closedloop_s1_diffgm3.png"
+								alt="Scenario 1 navigation path produced by DiffGM3"
+							/>
+							<p>DiffGM3 &mdash; Scenario 1</p>
+						</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/closedloop_s1_diffkbm.png"
+								alt="Scenario 1 navigation path produced by DiffKBM, ending in a collision"
+							/>
+							<p>DiffKBM &mdash; Scenario 1</p>
+						</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/closedloop_s2_diffgm3.png"
+								alt="Scenario 2 navigation path produced by DiffGM3"
+							/>
+							<p>DiffGM3 &mdash; Scenario 2</p>
+						</div>
+						<div class="figure-card">
+							<img
+								src="./static/images/closedloop_s2_diffkbm.png"
+								alt="Scenario 2 navigation path produced by DiffKBM"
+							/>
+							<p>DiffKBM &mdash; Scenario 2</p>
+						</div>
+					</div>
+					<div class="figure-legend">
+						<img
+							src="./static/images/closed_loop_legend.png"
+							alt="Legend: solid line is the bicycle, dashed lines are pedestrians, star is the goal"
+						/>
+					</div>
+				</div>
+				<p class="caption figure-caption">
+					Longer pedestrian paths reflect the longer navigation time taken by the
+					MMV to avoid moving pedestrians. <strong>Scenario 1:</strong> DiffGM3
+					brakes and turns to route around pedestrians, while DiffKBM's simple
+					kinematics push it to squeeze between two pedestrians and collide.
+					<strong>Scenario 2:</strong> both models reach the goal, but DiffGM3's
+					longer, curved route keeps a higher minimum distance and causes less
+					discomfort than DiffKBM's direct cut through the crowd.
+				</p>
 			</div>
 		</section>
 
-		<section id="results" class="section is-light">
-			<div class="container is-max-desktop">
-				<h2 class="title is-3 has-text-centered">Experiments and Results</h2>
-				<div class="content long-form-copy">
-					<p>
-						We evaluate GM3 against the Kinematic Bicycle Model (KBM). For
-						real-world evaluation, we use trajectories from the Stanford Drone
-						Dataset (SDD) deathCircle (roundabout) scene for three MMV modes
-						(Biker, Skater, and Cart). To stress test GM3, we generate
-						aggressive maneuvers, including S-curves and U-turns. We measure
-						performance with Average Displacement Error (ADE) and Discrete
-						Fréchet Distance (DFD).
-					</p>
-					<p>
-						Across the SDD trajectories, GM3 reduces ADE relative to KBM for all
-						three modes. For DFD, GM3 improves over KBM on Skater and Cart, but
-						performs worse on Biker due to lean-induced lateral biases. On the
-						aggressive maneuver experiments, GM3 closely follows the ground
-						truth while KBM tends to over/under steer in high-curvature
-						segments.
-					</p>
-				</div>
-
-				<div class="columns is-multiline result-figures">
-					<div class="column is-one-third">
-						<div class="figure-card">
-							<img
-								src="./static/images/s_curve.png"
-								alt="S-curve trajectory comparison"
-							/>
-							<p>S-Curve Comparison</p>
-						</div>
-					</div>
-					<div class="column is-one-third">
-						<div class="figure-card">
-							<img
-								src="./static/images/u_turn.png"
-								alt="U-turn trajectory comparison"
-							/>
-							<p>U-Turn Comparison</p>
-						</div>
-					</div>
-					<div class="column is-one-third">
-						<div class="figure-card">
-							<img
-								src="./static/images/turn_right.png"
-								alt="Right-turn trajectory comparison"
-							/>
-							<p>Right-Turn Comparison</p>
-						</div>
-					</div>
-					<div class="column is-full">
-						<div class="figure-card wide">
-							<img
-								src="./static/images/trajOverlay.png"
-								alt="Trajectory overlay on Stanford Drone Dataset track"
-							/>
-							<p>
-								Biker trajectory overlay from deathCircle scene: GM3 better
-								follows high-curvature segments compared to KBM.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section id="conclusion" class="section">
+		<section id="conclusion" class="section is-light">
 			<div class="container is-max-desktop">
 				<div class="content long-form-copy">
 					<h2 class="title is-3">Conclusion</h2>
 					<p>
-						GM3 introduces a general and physically grounded MMV model that
-						unifies tire-level dynamics across varied platform layouts while
-						preserving practical simulation performance. Compared with KBM
-						baselines, GM3 delivers more realistic local trajectory behavior and
-						competitive path-level reconstruction.
+						We explored differentiable formulations of micro-mobility dynamics by
+						deriving DiffKBM and DiffGM3 from the kinematic bicycle model and the
+						General Micro-mobility Model. DiffGM3 provides a unified,
+						tire-brush-based dynamics formulation for diverse micro-mobility
+						vehicles while enabling gradient flow through physically meaningful
+						parameters. It improves the trajectories produced by DiffStack with
+						DiffKBM by correcting oversteering with damping coefficients, and it
+						produces significantly safer, more direct trajectories through
+						pedestrian crowds.
 					</p>
 					<p>
-						Future directions include differentiable formulations for learning
-						and control, larger instrumented datasets for parameter
-						identification, and tighter integration into multi-agent
-						autonomous-system simulation pipelines.
+						By explicitly modeling effects like tire slip, lean, and load
+						transfer, DiffGM3 supports autonomous MMV systems that are not only
+						collision-free but also predictable and socially compliant in
+						pedestrian-shared environments &mdash; a key building block toward
+						scalable autonomy for diverse micro-mobility platforms.
+					</p>
+					<h3 class="title is-5 has-text-left">
+						Limitations and Future Directions
+					</h3>
+					<p>
+						Our open-loop experiments were limited to a single intersection with
+						short trajectories. We plan to evaluate long-running trajectories in
+						diverse situations, such as high-acceleration or high-curvature
+						scenarios that excite the saturation regime, and to test DiffGM3 on
+						other platforms (scooter, e-scooter, cart, wheelchair), which
+						requires trajectory data for those vehicles. We also plan to simulate
+						complex mixed traffic among pedestrians, vehicles, and independent
+						MMV agents, to integrate DiffGM3 into a differentiable simulator so
+						gradients can flow through all components of the environment, and to
+						deploy DiffGM3 on a physical platform such as a four-wheeled robot.
 					</p>
 				</div>
 			</div>
@@ -567,26 +730,23 @@
 			<div class="container is-max-desktop content">
 				<h2 class="title is-4">Acknowledgements</h2>
 				<p>
-					This work is supported in part by Dr. Barry Mersky and Capital One
-					E-Innovate Endowed Professorships, University of Maryland
-					Distinguished University Professorship, Maryland Transportation
-					Institute Fellowship, National Science Foundation, and ARL-UMD
-					ArtIAMAS Cooperative Agreement.
+					This project is supported in part by Dr. Barry Mersky and Capital One
+					E-Nnovate Endowed Professorships and UMD-ARL Cooperative Agreement.
 				</p>
 			</div>
 		</section>
 
-		<!-- <section class="section" id="bibtex">
+		<section class="section" id="bibtex">
 			<div class="container is-max-desktop content">
 				<h2 class="title is-4">BibTeX</h2>
-				<pre><code>@article{cai2026gm3,
-      title={GM3: A General Physical Model for Micro-Mobility Vehicles},
-      author={Grace Cai and Nithin Parepally and Laura Zheng and Ming C. Lin},
+				<pre><code>@inproceedings{cai2026diffgm3,
+      title={Differentiable Dynamics for Autonomous Micro-Mobility Navigation},
+      author={Cai, Grace and Lee, Joey and Parepally, Nithin and Zheng, Laura and Lin, Ming C.},
+      booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
       year={2026},
-      journal={ICRA},
 }</code></pre>
 			</div>
-		</section> -->
+		</section>
 
 		<footer class="footer">
 			<div class="container">
