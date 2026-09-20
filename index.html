@@ -31,9 +31,36 @@
 			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%9B%B4%3C/text%3E%3C/svg%3E"
 		/>
 
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+			integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+			crossorigin="anonymous"
+		/>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script defer src="./static/js/fontawesome.all.min.js"></script>
 		<script src="./static/js/index.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+			integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+			crossorigin="anonymous"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+			integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+			crossorigin="anonymous"
+			onload="renderMathInElement(document.body, {
+				delimiters: [
+					{ left: '\\[', right: '\\]', display: true },
+					{ left: '$', right: '$', display: false }
+				],
+				ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'option'],
+				throwOnError: false
+			});"
+		></script>
 	</head>
 	<body>
 		<section id="top" class="hero gm3-hero">
@@ -46,12 +73,6 @@
 								Differentiable Dynamics for Autonomous Micro-Mobility
 								Navigation
 							</h1>
-							<p class="is-size-5 publication-subtitle">
-								DiffGM3 makes tire-level micro-mobility dynamics differentiable,
-								so physical parameters can be learned inside an autonomy stack
-								and used for safer navigation in pedestrian-shared spaces.
-							</p>
-
 							<div class="is-size-5 publication-authors">
 								<span class="author-block"
 									><a href="https://gracelcai.github.io/">Grace Cai</a
@@ -238,15 +259,19 @@
 				<div class="content long-form-copy">
 					<p>
 						With a trajectory-matching objective over a predicted trajectory
-						<em>&#374;</em> and ground truth <em>Y</em>, each physical parameter
-						&rho;<sub>i</sub> of the dynamics model is updated by backpropagating
-						through the rollout:
+						$\hat{Y}$ and ground truth $Y$, each physical parameter $\rho_i$ of
+						the dynamics model is updated by backpropagating through the
+						rollout:
 					</p>
 					<span class="eq">
-						&#8466;<sub>ADE</sub> = (1/T) &sum;<sub>t</sub> &#8214; &#375;<sub>t</sub>
-						&minus; y<sub>t</sub> &#8214;<sub>2</sub> &nbsp;&nbsp;&nbsp;
-						&rho;<sub>i</sub> &larr; &rho;<sub>i</sub> &minus; &eta; &part;&#8466;<sub>ADE</sub>
-						/ &part;&rho;<sub>i</sub>
+						\[
+						\begin{aligned}
+						\mathcal{L}_{\text{ADE}} &= \frac{1}{T} \sum_{t=1}^{T}
+						\left\lVert \hat{y}_t - y_t \right\rVert_2 \\[6pt]
+						\rho_i &\leftarrow \rho_i - \eta \,
+						\frac{\partial \mathcal{L}_{\text{ADE}}}{\partial \rho_i}
+						\end{aligned}
+						\]
 					</span>
 				</div>
 
@@ -257,9 +282,9 @@
 					/>
 					<p class="caption">
 						<strong>DiffGM3</strong> contains several differentiable components
-						with learnable parameter sets &rho;<sub>lean</sub>,
-						&rho;<sub>tire</sub>, and &rho;<sub>VI</sub>. The steering input
-						&delta; is converted into tire-specific angles &delta;<sub>i</sub>,
+						with learnable parameter sets $\rho_{\text{lean}}$,
+						$\rho_{\text{tire}}$, and $\rho_{\text{VI}}$. The steering input
+						$\delta$ is converted into tire-specific angles $\delta_i$,
 						which together with body velocities and yaw rate give tire
 						velocities; accelerations drive load transfer, and the previous lean
 						angle and roll rate determine the next lean angle. These feed the
@@ -279,14 +304,17 @@
 								discontinuous at the adhesion&ndash;sliding boundary, and the
 								sign function kills gradients entirely. We replace the hard
 								switch with a sigmoid gate, the sign function with
-								tanh(k&alpha;), and absolute values with a softened norm.
+								$\tanh(k\alpha)$, and absolute values with a softened norm.
 							</p>
 							<span class="eq">
-								G(&sigma;, &psi;) = 1 / (1 + e<sup>&minus;k(&sigma; &minus; 1/&psi;)</sup>)
+								\[
+								G(\sigma, \psi) =
+								\frac{1}{1 + e^{-k\left(\sigma - \frac{1}{\psi}\right)}}
+								\]
 							</span>
 							<p>
-								The gate steepness <em>k</em> acts as a temperature. The
-								resulting worst-case force error decays with (1/k)<sup>3</sup>,
+								The gate steepness $k$ acts as a temperature. The resulting
+								worst-case force error decays with $(1/k)^3$,
 								so the smoothed model is the exact model plus a small bounded
 								disturbance &mdash; and receding-horizon MPC re-plans from the
 								measured state each step, so the mismatch cannot accumulate.
@@ -298,20 +326,27 @@
 							<h3 class="title is-5">Differentiable Steering</h3>
 							<p>
 								The Ackermann steering formula for double-track vehicles has a
-								singularity at &delta; = 0. We instead compute each tire angle
+								singularity at $\delta = 0$. We instead compute each tire angle
 								directly from the input steering angle and the tire's lateral
-								position y<sub>i</sub>:
+								position $y_i$:
 							</p>
 							<span class="eq">
-								&delta;<sub>i</sub> = arctan( L tan&delta; / (L &minus;
-								y<sub>i</sub> tan&delta;) )
+								\[
+								\delta_i = \arctan\left(
+								\frac{L \tan \delta}{L - y_i \tan \delta} \right)
+								\]
 							</span>
 							<p>
-								Steering is soft-clamped with tanh to a physically feasible
-								range, and a damping factor d<sub>yaw</sub> stabilizes the
-								turning dynamics: r&#775; = M<sub>z</sub><sup>total</sup>/I<sub>z</sub>
-								&minus; d<sub>yaw</sub> r.
+								Steering is soft-clamped with $\tanh$ to a physically feasible
+								range, and a damping factor $d_{\text{yaw}}$ stabilizes the
+								turning dynamics:
 							</p>
+							<span class="eq">
+								\[
+								\dot{r} = \frac{M_z^{\text{total}}}{I_z} -
+								d_{\text{yaw}} \, r
+								\]
+							</span>
 						</article>
 					</div>
 					<div class="column is-half">
@@ -323,12 +358,15 @@
 								second-order model around the ground contact point:
 							</p>
 							<span class="eq">
-								I<sub>x</sub> &gamma;&#776; + d<sub>roll</sub> &gamma;&#775; + m
-								g h<sub>cg</sub> sin&gamma; = m a<sub>y</sub> h<sub>cg</sub>
-								cos&gamma;
+								\[
+								I_x \ddot{\gamma} + d_{\text{roll}} \dot{\gamma} +
+								m g h_{\text{cg}} \sin \gamma =
+								m a_y h_{\text{cg}} \cos \gamma
+								\]
 							</span>
 							<p>
-								Soft clamping keeps &part;&gamma;<sub>out</sub>/&part;&gamma;<sub>in</sub>
+								Soft clamping keeps
+								$\partial \gamma_{\text{out}} / \partial \gamma_{\text{in}}$
 								from vanishing, so the optimizer can recover even if the vehicle
 								"falls over" during a training epoch.
 							</p>
@@ -344,21 +382,20 @@
 							</p>
 							<ul class="param-list">
 								<li>
-									<strong>Body:</strong> align gain k<sub>align</sub>, damping
-									d<sub>yaw</sub> and d<sub>roll</sub>, moments of inertia
-									I<sub>z</sub>, I<sub>x</sub>
+									<strong>Body:</strong> align gain $k_{\text{align}}$, damping
+									$d_{\text{yaw}}$ and $d_{\text{roll}}$, moments of inertia
+									$I_z$, $I_x$
 								</li>
 								<li>
 									<strong>Tires (each wheel):</strong> friction coefficient
-									&mu;, tread stiffness c<sub>p</sub>, half contact length
-									&ell;
+									$\mu$, tread stiffness $c_p$, half contact length $\ell$
 								</li>
 							</ul>
 							<p>
 								Because low-speed intersection maneuvers keep tires in the
 								adhesion regime, friction-dominated parameters are only weakly
 								excited; all parameters are soft-clamped to physically feasible
-								ranges with tanh, acting as an implicit prior.
+								ranges with $\tanh$, acting as an implicit prior.
 							</p>
 						</article>
 					</div>
@@ -370,11 +407,11 @@
 						alt="DiffKBM diagram showing wheelbase as a learnable parameter feeding steering and Euler integration"
 					/>
 					<p class="caption">
-						<strong>DiffKBM</strong> (baseline) implements wheelbase <em>L</em>
-						as a learnable parameter in the steering component. The turning rate
-						and velocity are integrated with Euler steps to obtain position,
-						making the classical KBM end-to-end differentiable so <em>L</em> can
-						be tuned for an MMV with unknown wheelbase.
+						<strong>DiffKBM</strong> (baseline) implements wheelbase $L$ as a
+						learnable parameter in the steering component. The turning rate and
+						velocity are integrated with Euler steps to obtain position, making
+						the classical KBM end-to-end differentiable so $L$ can be tuned for
+						an MMV with unknown wheelbase.
 					</p>
 				</div>
 			</div>

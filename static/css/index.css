@@ -28,15 +28,8 @@ h3 {
 }
 
 .publication-title,
-.publication-authors,
-.publication-subtitle {
+.publication-authors {
   font-family: 'Google Sans', sans-serif;
-}
-
-.publication-subtitle {
-  color: #4a4a4a;
-  max-width: 760px;
-  margin: 0 auto 1rem;
 }
 
 .author-block {
@@ -262,10 +255,6 @@ h3 {
     font-size: 2rem !important;
   }
 
-  .publication-subtitle {
-    font-size: 1rem;
-  }
-
   .media-card,
   .figure-card,
   .method-cards .box {
@@ -432,16 +421,22 @@ table.results-table tbody tr:last-child th {
 
 .eq {
   display: block;
-  text-align: center;
-  font-family: 'Castoro', Georgia, serif;
-  font-size: 1.02rem;
   color: #2c2c2c;
   background: #f7f9fc;
   border: 1px solid #e7edf6;
   border-radius: 8px;
-  padding: 0.6rem 0.75rem;
+  padding: 0.7rem 0.75rem;
   margin: 0.85rem 0;
   overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.eq .katex-display {
+  margin: 0;
+}
+
+.eq .katex {
+  font-size: 1.05em;
 }
 
 .venue-tag {
